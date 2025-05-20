@@ -1,0 +1,510 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    background-color: #ff6b6b;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ff5252;
+}
+
+/* Hero Section */
+.hero {
+    padding: 80px 0;
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+    animation-delay: 0.2s;
+}
+
+.hero-content h2 {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.hero-content h2 span {
+    color: #ff6b6b;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.hero-image {
+    flex: 1;
+}
+
+.hero-image img {
+    width: 100%;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+    animation-delay: 0.4s;
+    transition: transform 0.4s ease;
+}
+
+.hero-image img:hover {
+    transform: scale(1.03);
+}
+
+/* Features Section */
+.features {
+    background-color: #fff;
+    padding: 80px 0;
+}
+
+.features h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 32px;
+    animation: fadeInUp 1.6s ease forwards;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    cursor: pointer;
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: zoomIn 0.6s ease forwards;
+}
+
+.feature-card:nth-child(1) {
+    animation-delay: 0.8s;
+}
+
+.feature-card:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.feature-card:nth-child(3) {
+    animation-delay: 1.2s;
+}
+
+.feature-card:nth-child(4) {
+    animation-delay: 1.4s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.feature-card p {
+    line-height: 28px;
+    color: #666;
+}
+
+/* How It Works Section */
+.how-it-works {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.how-it-works h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 32px;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.step {
+    cursor: pointer;
+    text-align: center;
+    padding: 20px;
+    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step:nth-child(1) {
+    animation-delay: 0.8s;
+}
+
+.step:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.step:nth-child(3) {
+    animation-delay: 1.2s;
+}
+
+.step:nth-child(4) {
+    animation-delay: 1.4s;
+}
+
+.step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background-color: #ff6b6b;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.step h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.step p {
+    line-height: 28px;
+    color: #666;
+}
+
+/* Styles Page */
+.styles-header {
+    padding: 60px 0;
+    text-align: center;
+    background-color: #f1f1f1;
+}
+
+.styles-header h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.styles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 60px 0;
+}
+
+.style-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.style-card:hover {
+    transform: translateY(-5px);
+}
+
+.style-image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.style-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.style-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.style-info h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.style-info p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Photo Booth Page */
+.booth-container {
+    padding: 60px 0;
+}
+
+.booth-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.booth-header h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.booth-header p {
+    font-size: 18px;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.booth-content {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.camera-section {
+    flex: 1;
+    min-width: 300px;
+}
+
+.camera-container {
+    width: 100%;
+    background-color: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.camera-container img {
+    width: 100%;
+    display: block;
+}
+
+.controls-section {
+    flex: 1;
+    min-width: 300px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.filter-options {
+    margin-bottom: 30px;
+}
+
+.filter-options h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.filters-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.filter {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter.active,
+.filter:hover {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.action-buttons .btn {
+    flex: 1;
+    text-align: center;
+}
+
+.action-buttons .btn-secondary {
+    background-color: #6c757d;
+}
+
+.action-buttons .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        padding: 36px 0;
+    }
+
+    .hero .container {
+        flex-direction: column;
+    }
+
+    .features {
+        padding: 36px 0;
+    }
+
+    .features h2 {
+        margin-bottom: 32px;
+    }
+
+    .styles-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .how-it-works {
+        padding: 36px 0;
+    }
+
+    .how-it-works h2 {
+        margin-bottom: 32px;
+    }
+
+    .booth-content {
+        flex-direction: column;
+    }
+
+    .camera-section,
+    .controls-section {
+        width: 100%;
+    }
+
+    .filters-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+camera-container {
+    position: relative;
+    border: 4px solid #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+video,
+canvas {
+    width: 640px;
+    height: 480px;
+    display: block;
+}
+
+.controls {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.filter-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.capture-btn {
+    background: #ff4081;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.capture-btn:hover {
+    background: #e73370;
+}
+
+.photo {
+    margin-top: 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+}

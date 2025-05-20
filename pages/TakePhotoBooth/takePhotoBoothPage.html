@@ -1,0 +1,19 @@
+<h1>📸 PhotoBooth App</h1>
+<div class="camera-container">
+  <video id="video" autoplay></video>
+  <canvas id="canvas" style="display: none"></canvas>
+</div>
+<div class="controls">
+  <button class="filter-btn" onclick="setFilter('none')">Normal</button>
+  <button class="filter-btn" onclick="setFilter('grayscale(100%)')">
+    Grayscale
+  </button>
+  <button class="filter-btn" onclick="setFilter('sepia(1)')">Sepia</button>
+  <button class="filter-btn" onclick="setFilter('invert(1)')">Invert</button>
+  <button class="filter-btn" onclick="setFilter('contrast(2)')">
+    High Contrast
+  </button>
+  <button class="filter-btn" onclick="setFilter('blur(3px)')">Blur</button>
+</div>
+<button class="capture-btn" onclick="capture()">📷 Chụp ảnh</button>
+<img id="photo" class="photo" src="" alt="Ảnh đã chụp" style="display: none" />
