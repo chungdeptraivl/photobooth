@@ -1,15 +1,55 @@
-<div class="camera-container">
-    <video id="video" autoplay></video>
-    <canvas id="canvas" style="display: none"></canvas>
-    <div id="countdown"></div>
+<div class="take-photo-contain container">
+  <div class="camera-wrapper">
+    <div class="camera-container">
+      <div class="camera">
+        <video id="video" autoplay></video>
+        <canvas id="canvas" style="display: none"></canvas>
+        <div id="countdown"></div>
+      </div>
+      <div class="capture-area">
+        <button class="btn capture-btn" onclick="startMultiCapture()">
+          Take photos
+        </button>
+      </div>
+    </div>
+
+    <div class="photo-controls">
+      <div class="controls">
+        <p class="filter-text">Filter camera:</p>
+        <div class="filter-contain">
+          <button class="filter-btn btn" onclick="setFilter('none')">
+            Normal
+          </button>
+          <button class="filter-btn btn" onclick="setFilter('grayscale(100%)')">
+            Grayscale
+          </button>
+          <button class="filter-btn btn" onclick="setFilter('sepia(1)')">
+            Sepia
+          </button>
+          <button class="filter-btn btn" onclick="setFilter('invert(1)')">
+            Invert
+          </button>
+          <button class="filter-btn btn" onclick="setFilter('contrast(2)')">
+            Contrast
+          </button>
+          <button class="filter-btn btn" onclick="setFilter('blur(3px)')">
+            Blur
+          </button>
+          <button class="filter-btn btn" onclick="setFilter('none')">
+            Normal
+          </button>
+          <button class="filter-btn btn" onclick="setFilter('grayscale(100%)')">
+            Grayscale
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="controls">
-    <button class="filter-btn" onclick="setFilter('none')">Normal</button>
-    <button class="filter-btn" onclick="setFilter('grayscale(100%)')">Grayscale</button>
-    <button class="filter-btn" onclick="setFilter('sepia(1)')">Sepia</button>
-    <button class="filter-btn" onclick="setFilter('invert(1)')">Invert</button>
-    <button class="filter-btn" onclick="setFilter('contrast(2)')">High Contrast</button>
-    <button class="filter-btn" onclick="setFilter('blur(3px)')">Blur</button>
+
+  <div class="photos-container" id="photos">
+    <div class="photo-placeholder"></div>
+    <div class="photo-placeholder"></div>
+    <div class="photo-placeholder"></div>
+    <div class="photo-placeholder"></div>
   </div>
-  <button class="capture-btn" onclick="startMultiCapture()">📷 Chụp 4 ảnh</button>
-  <div class="photos-container" id="photos"></div>
+</div>

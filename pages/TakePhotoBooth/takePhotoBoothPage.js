@@ -1,16 +1,29 @@
-const video = document.getElementById("video");
-const canvas = document.getElementById("canvas");
-const countdown = document.getElementById("countdown");
-const photosContainer = document.getElementById("photos");
+let video;
+let canvas;
+let countdown;
+let photosContainer;
 
-navigator.mediaDevices
-  .getUserMedia({ video: true })
-  .then((stream) => {
-    video.srcObject = stream;
-  })
-  .catch((err) => {
-    alert("Không thể truy cập camera: " + err);
-  });
+function initTakePhoto() {
+  video = document.getElementById("video");
+  canvas = document.getElementById("canvas");
+  countdown = document.getElementById("countdown");
+  photosContainer = document.getElementById("photos");
+
+  if (!video || !canvas || !countdown || !photosContainer) {
+    alert("Lỗi tải trang PhotoBooth. Vui lòng thử lại.");
+    return;
+  }
+
+  navigator.mediaDevices
+    .getUserMedia({ video: true })
+    .then((stream) => {
+      video.srcObject = stream;
+      console.log("Camera đã được truy cập thành công.");
+    })
+    .catch((err) => {
+      alert("Không thể truy cập camera: " + err);
+    });
+}
 
 function setFilter(filterValue) {
   video.style.filter = filterValue;
@@ -18,16 +31,16 @@ function setFilter(filterValue) {
 }
 
 async function startMultiCapture() {
-  photosContainer.innerHTML = "";
+  const placeholders = document.querySelectorAll(".photo-placeholder");
   for (let i = 0; i < 4; i++) {
-    await countdownAndCapture(i + 1);
+    await countdownAndCapture(i + 1, placeholders[i]);
   }
 }
 
-function countdownAndCapture(index) {
+function countdownAndCapture(index, placeholder) {
   return new Promise((resolve) => {
     let count = 3;
-    countdown.style.display = "block";
+    countdown.style.display = "flex";
     countdown.textContent = count;
     const interval = setInterval(() => {
       count--;
@@ -39,7 +52,7 @@ function countdownAndCapture(index) {
         const img = document.createElement("img");
         img.className = "photo";
         img.src = capture();
-        photosContainer.appendChild(img);
+        placeholder.replaceWith(img); 
         resolve();
       }
     }, 1000);
@@ -54,3 +67,7 @@ function capture() {
   context.drawImage(video, 0, 0, canvas.width, canvas.height);
   return canvas.toDataURL("image/png");
 }
+
+window.setFilter = setFilter;
+window.startMultiCapture = startMultiCapture;
+window.initTakePhoto = initTakePhoto;
