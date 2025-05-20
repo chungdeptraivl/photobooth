@@ -1,6 +1,7 @@
 const video = document.getElementById("video");
 const canvas = document.getElementById("canvas");
-const photo = document.getElementById("photo");
+const countdown = document.getElementById("countdown");
+const photosContainer = document.getElementById("photos");
 
 navigator.mediaDevices
   .getUserMedia({ video: true })
@@ -16,14 +17,40 @@ function setFilter(filterValue) {
   canvas.dataset.filter = filterValue;
 }
 
+async function startMultiCapture() {
+  photosContainer.innerHTML = "";
+  for (let i = 0; i < 4; i++) {
+    await countdownAndCapture(i + 1);
+  }
+}
+
+function countdownAndCapture(index) {
+  return new Promise((resolve) => {
+    let count = 3;
+    countdown.style.display = "block";
+    countdown.textContent = count;
+    const interval = setInterval(() => {
+      count--;
+      if (count > 0) {
+        countdown.textContent = count;
+      } else {
+        clearInterval(interval);
+        countdown.style.display = "none";
+        const img = document.createElement("img");
+        img.className = "photo";
+        img.src = capture();
+        photosContainer.appendChild(img);
+        resolve();
+      }
+    }, 1000);
+  });
+}
+
 function capture() {
   const context = canvas.getContext("2d");
-  canvas.style.display = "block";
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
   context.filter = video.style.filter || "none";
   context.drawImage(video, 0, 0, canvas.width, canvas.height);
-  const dataURL = canvas.toDataURL("image/png");
-  photo.src = dataURL;
-  photo.style.display = "block";
+  return canvas.toDataURL("image/png");
 }
